@@ -4,8 +4,9 @@ import time
 from skfuzzy import control as ctrl
 import os
 
-# Agregar antecedente(s) que contienen el universo de variales
-# y funciones de pertenencia
+#Agregar antecedente(s) que contienen el universo de variales y funciones de pertenencia.
+#La habilidad sera representada por el rango de valores ingresado.
+
 def fuzzyLogic(body):
     habilidad1 = ctrl.Antecedent(np.arange(0,11.0,1), 'habilidad1')
     habilidad1['armonico'] = fuzz.trapmf(habilidad1.universe, [0.0, 0.0, 2.0, 2.1])
@@ -42,7 +43,8 @@ def fuzzyLogic(body):
     necesidad2['politicas'] = fuzz.trapmf(necesidad2.universe, [6.0, 6.1, 8.0, 8.1])
     necesidad2['administracion'] = fuzz.trapmf(necesidad2.universe, [8.0, 8.1, 10.0, 10.0])
 
-    # # Funciones de pertenencia para la variable de salida
+    #Funciones de pertenencia para la variable de salida.
+    #La habilidad sera representada por el rango de valores ingresado.
 
     salida = ctrl.Consequent(np.arange(0, 11, 1), 'salida')
 
@@ -52,35 +54,31 @@ def fuzzyLogic(body):
     salida['cargo4'] = fuzz.trapmf(salida.universe, [6, 6.5, 8.0, 8.5])
     salida['cargo5'] = fuzz.trapmf(salida.universe, [8, 8.5, 10.0, 11.0])
 
-    #
-    # salida.view()
-    # time.sleep(115)
-    #
 
-
-    ##REGLA alta probabilidad de incendio
+    ##REGLA cargo 1
     rule_cargo1 = ctrl.Rule((habilidad1['armonico'] | habilidad2['empatico'])
                                               | (competencia['basicas'] | necesidad1['relacionar'])
                                               | (necesidad2['supervision']), salida['cargo1'])
 
-    ##REGLA media probabilidad de incendio
+    ##REGLA cargo 2
     rule_cargo2 = ctrl.Rule((habilidad1['analitico'] | habilidad2['flexible'])
                                            | (competencia['comportamiento'] | necesidad1['influir'])
                                            | (necesidad2['sueldo']), salida['cargo2'])
 
-    ##REGLA baja probabilidad de incendio
+    ##REGLA cargo 3
     rule_cargo3 = ctrl.Rule((habilidad1['comunicador'] | habilidad2['responsable'])
                                | (competencia['tecnicas'] | necesidad1['destacarse'])
                                | (necesidad2['condiciones']), salida['cargo3'])
 
+    # REGLA cargo 4
     rule_cargo4 = ctrl.Rule((habilidad1['comunicador'] | habilidad2['responsable'])
                                | (competencia['tecnicas'] | necesidad1['destacarse'])
                                | (necesidad2['condiciones']), salida['cargo4'])
 
+    # REGLA cargo 5
     rule_cargo5 = ctrl.Rule((habilidad1['comunicador'] | habilidad2['responsable'])
                                | (competencia['tecnicas'] | necesidad1['destacarse'])
                                | (necesidad2['condiciones']), salida['cargo5'])
-
 
 
     calidad_ctrl = ctrl.ControlSystem([rule_cargo1, rule_cargo2, rule_cargo3, rule_cargo4, rule_cargo5])
@@ -93,10 +91,8 @@ def fuzzyLogic(body):
     calidad.input['necesidad1'] = float(body['necesidad1'])
     calidad.input['necesidad2'] = float(body['necesidad2'])
 
-
     calidad.compute()
 
-    #
     print "\nResultado"
     print calidad.output['salida']
     print "\n"

@@ -1,6 +1,6 @@
 # SistemaExpertoGPI
 
-### Instalación
+### Instalación Motor Inferencia y Servidor
 
 ##### 1 Instalar Programas
   + Instalar Python 2.7
@@ -24,5 +24,14 @@
 
   >  pip install numpy scipy matplotlib scikit-fuzzy flask flask_restful
 
-##### 4 Correr
+##### 4 Correr Server
   + Ejercutar en el directorio del projecto *'FLASK_APP=server.py FLASK_DEBUG=1 python -m flask run'*
+
+### Instalación Cliente
+
+##### 1 Instalar Programas y módulos
+  + Instalar Nodejs v6.11
+  + En el directorio del cliente ejecutar _'npm install'_
+
+##### 2 Correr cliente
+  + En el directorio del cliente ejecutar _'npm start'_

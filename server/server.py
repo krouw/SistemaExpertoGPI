@@ -5,7 +5,7 @@ from GPI import fuzzyLogic
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
+class RestFuzzy(Resource):
     def get(self):
         return {'hello': 'world'}
 
@@ -13,7 +13,7 @@ class HelloWorld(Resource):
         resultado = fuzzyLogic(request.form)
         return { 'resultado': resultado }
 
-api.add_resource(HelloWorld, '/')
+api.add_resource(RestFuzzy, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
