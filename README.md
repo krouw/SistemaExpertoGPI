@@ -12,14 +12,17 @@
   + Instalar virtualenv -> sudo pip install virtualenv
   + En el directorio del proyecto ejecutar _'virtualenv venv'_
   + Luego ejecutar _'. venv/bin/activate'_
+    * Para salir del Ambiente ejecutar _'deactivate'_
 
-##### 3 Instalación Módulos Python
-  + Instalar numpy -> sudo pip install numpy
-  + Instalar scipy -> sudo pip install scipy
-  + Instalar matplotlib -> sudo pip install matplotlib
-  + Instalar scikit-fuzzy -> sudo pip install scikit-fuzzy
-  + Instalar Flask -> sudo pip install Flask
-  + Instalar flask_restful -> sudo pip install flask_restful
+##### 3 Instalación Módulos Python en ambiente de Desarrollo
+  + Instalar numpy
+  + Instalar scipy
+  + Instalar matplotlib
+  + Instalar scikit-fuzzy
+  + Instalar Flask
+  + Instalar flask_restful
+
+  >  pip install numpy scipy matplotlib scikit-fuzzy flask flask_restful
 
 ##### 4 Correr
   + Ejercutar en el directorio del projecto *'FLASK_APP=server.py FLASK_DEBUG=1 python -m flask run'*
