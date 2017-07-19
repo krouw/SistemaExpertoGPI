@@ -86,13 +86,12 @@ def fuzzyLogic(body):
     calidad_ctrl = ctrl.ControlSystem([rule_cargo1, rule_cargo2, rule_cargo3, rule_cargo4, rule_cargo5])
     calidad = ctrl.ControlSystemSimulation(calidad_ctrl)
 
-    print body['name']
 
-    calidad.input['habilidad1'] = 10.0
-    calidad.input['habilidad2'] = 3.3
-    calidad.input['competencia'] = 1.8
-    calidad.input['necesidad1'] = 2.3
-    calidad.input['necesidad2'] = 1.0
+    calidad.input['habilidad1'] = float(body['habilidad1'])
+    calidad.input['habilidad2'] = float(body['habilidad2'])
+    calidad.input['competencia'] = float(body['competencia'])
+    calidad.input['necesidad1'] = float(body['necesidad1'])
+    calidad.input['necesidad2'] = float(body['necesidad2'])
 
 
     calidad.compute()
@@ -102,4 +101,4 @@ def fuzzyLogic(body):
     print calidad.output['salida']
     print "\n"
 
-    return
+    return calidad.output['salida']

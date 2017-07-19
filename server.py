@@ -10,10 +10,8 @@ class HelloWorld(Resource):
         return {'hello': 'world'}
 
     def post(self):
-        name = request.form['name']
-        password = request.form['password']
-        fuzzyLogic(request.form)
-        return { 'name': name, 'password': password }
+        resultado = fuzzyLogic(request.form)
+        return { 'resultado': resultado }
 
 api.add_resource(HelloWorld, '/')
 
