@@ -30,7 +30,7 @@
 ### Instalación Cliente
 
 ##### 1 Instalar Programas y módulos
-  + Instalar Nodejs v6.11
+  + Instalar Nodejs >=v6.x
   + En el directorio del cliente ejecutar _'npm install'_
 
 ##### 2 Correr cliente
