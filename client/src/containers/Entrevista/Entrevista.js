@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row,Col } from 'react-flexbox-grid';
 import TestForm from '../TestForm/TestForm'
 import Roles from '../Roles/Roles'
+import Result from '../../components/Result/Result'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 import { getRoles } from '../../actions/test'
@@ -61,7 +62,7 @@ class Entrevista extends Component {
               </Col>
             </Row>
         </Col>
-        { isEmpty() }
+        { !isEmpty(this.props.test.roles) ? <Result roles={this.props.test.roles} /> : '' }
       </Row>
     );
   }

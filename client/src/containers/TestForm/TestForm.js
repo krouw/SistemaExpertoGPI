@@ -26,7 +26,7 @@ let TestForm = props => {
   const { handleSubmit, reset, pristine, submitting, valid, error, getRoles } = props
   const renderTopics = data.data.map((topic) =>{
       return (
-        <Topic data={topic} />
+        <Topic key={topic.id_topic} data={topic} />
       )
     });
   return (

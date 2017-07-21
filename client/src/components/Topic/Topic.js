@@ -15,7 +15,7 @@ const Topic = ({ data }) => {
 
     const renderQuestions = data.questions.map((question) => {
         return (
-          <Row>
+          <Row key={ question.id_question }>
             <Col xs={12}>
               <p style={{marginBottom: 16, marginTop: 16}}>{question.id_question}. {question.text}</p>
               <Row>
