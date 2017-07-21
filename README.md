@@ -10,7 +10,7 @@
 
 ##### 2 Ambiente de Desarrollo
   + Instalar virtualenv -> sudo pip install virtualenv
-  + En el directorio del proyecto ejecutar _'virtualenv venv'_
+  + En el directorio del servidor ejecutar _'virtualenv venv'_
   + Luego ejecutar _'. venv/bin/activate'_
     * Para salir del Ambiente ejecutar _'deactivate'_
 
