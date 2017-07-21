@@ -9,31 +9,19 @@ const data = {
           text: 'Nivel educacional',
           inputs: [
             {
-              value: '0',
+              value: '4000000',
               text: 'Universitaria completa'
             },
             {
-              value: '0.25',
-              text: 'Universitaria en curso'
-            },
-            {
-              value: '0.5',
+              value: '3000000',
               text: 'Técnica completa'
             },
             {
-              value: '1',
-              text: 'Técnica en curso'
-            },
-            {
-              value: '3',
+              value: '0',
               text: 'Educación media completa'
             },
             {
-              value: '6',
-              text: 'Educación básica completa'
-            },
-            {
-              value: '7',
+              value: '0',
               text: 'N/A'
             }
           ]
@@ -47,15 +35,15 @@ const data = {
               text: 'Ninguna'
             },
             {
-              value: '0.25',
+              value: '10000',
               text: 'Más de 1 año'
             },
             {
-              value: '0.5',
+              value: '20000',
               text: 'Más de 2 años'
             },
             {
-              value: '1',
+              value: '50000',
               text: 'Más de 5 años'
             },
           ]
@@ -68,19 +56,15 @@ const data = {
       questions: [
         {
           id_question: '3',
-          text: 'Antecedentes penales',
+          text: '¿Tiene Antecedentes penales?',
           inputs: [
             {
               value: '0',
+              text: 'Si'
+            },
+            {
+              value: '5000',
               text: 'No'
-            },
-            {
-              value: '0.25',
-              text: 'Leve'
-            },
-            {
-              value: '0.5',
-              text: 'Grave'
             },
           ]
         },
@@ -89,19 +73,19 @@ const data = {
           text: '¿Cuánto tiempo ha durado en los trabajos?',
           inputs: [
             {
-              value: '0',
+              value: '2000',
               text: 'Más de 2 años'
             },
             {
-              value: '0.25',
+              value: '1000',
               text: 'Más de 1 año'
             },
             {
-              value: '0.5',
+              value: '600',
               text: 'Más de 6 meses'
             },
             {
-              value: '1',
+              value: '0',
               text: 'N/A'
             },
           ]
@@ -114,22 +98,572 @@ const data = {
       questions: [
         {
           id_question: '5',
-          text: 'tiene la facilidad de relacionarse con otras personas, conocidas o desconocidas',
+          text: '¿Se ha capacitado durante su experiencia laboral?',
           inputs: [
             {
-              value: '0',
+              value: '1',
               text: 'Nunca'
             },
             {
-              value: '0.25',
+              value: '2',
               text: 'Poco'
             },
             {
-              value: '0.5',
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '6',
+          text: '¿Ha sido premiado por su desempeño?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '7',
+          text: '¿Ha recibido alguna responsabilidad?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '8',
+          text: '¿Es una persona con iniciativa, le gusta ir un paso adelante?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '9',
+          text: '¿Generalmente, puede cumplir con lo que se planea personalmente?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '10',
+          text: '¿Se siente identificado con el rubro de la salud?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '11',
+          text: '¿Cuanto le interesa participar en urgencias?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '12',
+          text: '¿Es organizado y le gusta planear sus actividades por anticipado?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '13',
+          text: '¿Siente la necesidad de trabajar en grupo?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '14',
+          text: '¿Tiene la facilidad de relacionarse con otras personas, conocidas o desconocidas?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '15',
+          text: '¿Se le facilita adaptarse a nuevos ambientes o entornos?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '16',
+          text: '¿Qué tan seguido realiza horas extras?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '17',
+          text: '¿Siente la necesidad constante de emprender nuevos proyectos?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '18',
+          text: '¿formula sus ideas antes de comentarlas?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '19',
+          text: '¿Usted se guarda los comentarios en la mayoría de situaciones?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '20',
+          text: 'Me considero una persona crítica con los demás y autocrítica conmigo mismo',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '21',
+          text: 'Regularmente mis amigos o compañeros me piden ayuda para aclarar sus dudas o mi opinión sobre alguna situación en particular',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '22',
+          text: '¿Respeta la diversidad?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '23',
+          text: '¿Considera a otros, en sus planes o desafíos?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '24',
+          text: 'Cuando adquiero un producto o recibo un servicio estoy al pendiente de que sea de buena calidad',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '25',
+          text: '¿Conoce de otras costumbres, tradiciones y culturas?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '26',
+          text: '¿Siente la necesidad de innovar o probar cosas nuevas?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '27',
+          text: '¿Planifica sus tareas antes de realizarlas?',
+          inputs: [
+            {
+              value: '4',
+              text: 'Nunca'
+            },
+            {
+              value: '3',
+              text: 'Poco'
+            },
+            {
+              value: '2',
               text: 'Bastante'
             },
             {
               value: '1',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '28',
+          text: '¿Le agrada estar a cargo de otras personas??',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '29',
+          text: '¿Termina sus labores anticipadamente??',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
+              text: 'Siempre'
+            },
+          ]
+        },
+        {
+          id_question: '30',
+          text: '¿Siente la necesidad constante de emprender nuevos proyectos?',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nunca'
+            },
+            {
+              value: '2',
+              text: 'Poco'
+            },
+            {
+              value: '3',
+              text: 'Bastante'
+            },
+            {
+              value: '4',
               text: 'Siempre'
             },
           ]

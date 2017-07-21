@@ -5,13 +5,15 @@ import { Row, Col } from 'react-flexbox-grid';
 import data from '../../config/data'
 import { Button, Intent } from '@blueprintjs/core'
 import isEmpty from 'lodash/isEmpty'
+import axios from 'axios'
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-function submit(values) {
-  return sleep(1000) // simulate server latency
-          .then(() => {
-            throw new SubmissionError({ _error: 'Error al conectar con el servidor' })
+const submit = (values) => {
+  return axios.post('http://localhost:5000/api/test', values)
+          .then((value) => {
+            console.log(value.data);
+          })
+          .catch((err) => {
+            throw new SubmissionError({ _error: err.response.data.error })
           })
 }
 
@@ -63,6 +65,7 @@ let TestForm = props => {
               style={{margin: 16,marginTop:24,marginBottom:0}}
               intent={Intent.SUCCESS}
               disabled={!valid}
+              loading={submitting}
               type="submit"
               text={'Enviar'} />
           </Col>
