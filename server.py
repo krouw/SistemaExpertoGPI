@@ -37,4 +37,4 @@ api.add_resource(RestFuzzy, '/api/test')
 api.add_resource(RestRole, '/api/role/<int:id_role>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
