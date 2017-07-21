@@ -2,6 +2,7 @@ from flask import Flask, abort, request
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 from motor import fuzzyLogic
+from roles import Roles
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -14,10 +15,11 @@ def validate(body):
         return False
 
 
-class RestFuzzy(Resource):
-    def get(self):
-        return {'hello': 'world'}
+class RestRole(Resource):
+    def get(seft, id_role):
+        return { 'role': id_role, 'data': Roles[id_role], 'keys': Roles[id_role].keys() }
 
+class RestFuzzy(Resource):
     def post(self):
         content = request.get_json(silent=True)
         if(validate(content)):
@@ -28,6 +30,7 @@ class RestFuzzy(Resource):
             return { 'error': 'Problemas con el servidor' }, 400
 
 api.add_resource(RestFuzzy, '/api/test')
+api.add_resource(RestRole, '/api/role/<int:id_role>')
 
 if __name__ == '__main__':
     app.run(debug=True)

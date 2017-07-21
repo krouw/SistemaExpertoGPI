@@ -6,6 +6,7 @@ import Result from '../../components/Result/Result'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 import { getRoles } from '../../actions/test'
+import { getRequirement } from '../../actions/roles'
 import isEmpty from 'lodash/isEmpty'
 
 class Entrevista extends Component {
@@ -58,7 +59,7 @@ class Entrevista extends Component {
             </Row>
             <Row start="xs">
               <Col xs={12}>
-                { this.state.tab ? <TestForm getRoles={ this.props.getRoles } /> : <Roles />}
+                { this.state.tab ? <TestForm getRoles={ this.props.getRoles } /> : <Roles requirements={ this.props.requirements } getRequirement={ this.props.getRequirement } />}
               </Col>
             </Row>
         </Col>
@@ -72,12 +73,14 @@ class Entrevista extends Component {
 function mapStateToProps(state){
   return {
     test: state.test,
+    requirements: state.roles.requirements
   }
 }
 
 function mapDispatchToProps(dispatch){
   return {
     getRoles: (data) => dispatch(getRoles(data)),
+    getRequirement: (data) => dispatch(getRequirement(data))
   }
 }
 
