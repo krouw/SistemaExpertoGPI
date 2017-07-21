@@ -1,4 +1,4 @@
-from flask import Flask, abort, request
+from flask import Flask, abort, request, render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 from motor import fuzzyLogic
@@ -14,6 +14,10 @@ def validate(body):
     else:
         return False
 
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 class RestRole(Resource):
     def get(seft, id_role):

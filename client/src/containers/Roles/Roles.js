@@ -19,12 +19,13 @@ class Roles extends Component {
 
   renderRequirement(req){
     return req.keys.map( key => {
-      if(key != 'name')
+      if(key !== 'name'){
         return (
           <Col xs={12} style={{marginTop: 24}} >
             <p>El nivel de <strong>{key}</strong> debe ser: <strong>{req.data[key]}</strong> </p>
           </Col>
         )
+      }
     })
   }
 
