@@ -15,17 +15,14 @@
     * Para salir del Ambiente ejecutar _'deactivate'_
 
 ##### 3 Instalación Módulos Python en ambiente de Desarrollo
-  + Instalar numpy
-  + Instalar scipy
-  + Instalar matplotlib
-  + Instalar scikit-fuzzy
   + Instalar Flask
   + Instalar flask_restful
+  + Instalar flask_cors
 
-  >  pip install numpy scipy matplotlib scikit-fuzzy flask flask_restful
+  >  pip install flask flask_restful flask_cors
 
 ##### 4 Correr Server
-  + Ejercutar en el directorio del projecto *'FLASK_APP=server.py FLASK_DEBUG=1 python -m flask run'*
+  + Ejercutar en el directorio del servidor *'FLASK_APP=server.py FLASK_DEBUG=1 python -m flask run'*
 
 ### Instalación Cliente
 
