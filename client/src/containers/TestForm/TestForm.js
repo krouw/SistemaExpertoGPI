@@ -1,21 +1,10 @@
 import React from 'react'
-import { reduxForm, SubmissionError } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import Topic from '../../components/Topic/Topic'
 import { Row, Col } from 'react-flexbox-grid';
 import data from '../../config/data'
 import { Button, Intent } from '@blueprintjs/core'
 import isEmpty from 'lodash/isEmpty'
-import axios from 'axios'
-
-const submit = (values) => {
-  return axios.post('http://localhost:5000/api/test', values)
-          .then((value) => {
-            console.log(value.data);
-          })
-          .catch((err) => {
-            throw new SubmissionError({ _error: err.response.data.error })
-          })
-}
 
 const validate = values => {
   let errors = {}
@@ -34,14 +23,14 @@ const validate = values => {
 }
 
 let TestForm = props => {
-  const { handleSubmit, reset, pristine, submitting, valid, error } = props
+  const { handleSubmit, reset, pristine, submitting, valid, error, getRoles } = props
   const renderTopics = data.data.map((topic) =>{
       return (
         <Topic data={topic} />
       )
     });
   return (
-    <form onSubmit={ handleSubmit(submit) }>
+    <form onSubmit={ handleSubmit(getRoles) }>
       <Col xs={12}>
         <Row>
           { renderTopics }

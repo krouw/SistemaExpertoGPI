@@ -3,11 +3,14 @@ import { Row,Col } from 'react-flexbox-grid';
 import TestForm from '../TestForm/TestForm'
 import Roles from '../Roles/Roles'
 import classNames from 'classnames'
+import { connect } from 'react-redux'
+import { getRoles } from '../../actions/test'
+import isEmpty from 'lodash/isEmpty'
 
 class Entrevista extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       tab: true
     }
@@ -54,14 +57,27 @@ class Entrevista extends Component {
             </Row>
             <Row start="xs">
               <Col xs={12}>
-                { this.state.tab ? <TestForm /> : <Roles />}
+                { this.state.tab ? <TestForm getRoles={ this.props.getRoles } /> : <Roles />}
               </Col>
             </Row>
         </Col>
+        { isEmpty() }
       </Row>
     );
   }
 }
 
 
-export default Entrevista;
+function mapStateToProps(state){
+  return {
+    test: state.test,
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    getRoles: (data) => dispatch(getRoles(data)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Entrevista)

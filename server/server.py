@@ -22,7 +22,8 @@ class RestFuzzy(Resource):
         content = request.get_json(silent=True)
         if(validate(content)):
             resultado = fuzzyLogic(content)
-            return { 'resultado': 'resultado' }
+            print resultado
+            return { 'resultado': resultado }
         else:
             return { 'error': 'Problemas con el servidor' }, 400
 

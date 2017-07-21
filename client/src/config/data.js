@@ -667,6 +667,28 @@ const data = {
               text: 'Siempre'
             },
           ]
+        },
+        {
+          id_question: '31',
+          text: '¿Cuánto es tu nivel de competencia',
+          inputs: [
+            {
+              value: '1',
+              text: 'Nivel 1 Básicas'
+            },
+            {
+              value: '2',
+              text: 'Nivel 2 Básicas y Técnicas'
+            },
+            {
+              value: '3',
+              text: 'Nivel 3 Básica, Técnicas y de Comportamiento'
+            },
+            {
+              value: '4',
+              text: 'Nivel 4 Básicas, Técnicas, Comportamiento y Intelectual'
+            },
+          ]
         }
       ],
     }
