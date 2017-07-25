@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { SubmissionError } from 'redux-form'
-import { SET_REQUIREMENT } from './types'
+import { SET_REQUIREMENT, API } from './types'
 
 export const setRequirement = (requirements) => {
   return {
@@ -11,7 +11,7 @@ export const setRequirement = (requirements) => {
 
 export const getRequirement = data => {
   return dispatch => {
-    return axios.get('http://localhost:5000/api/role/'+data)
+    return axios.get(API+'/api/role/'+data)
             .then((value) => {
               dispatch(setRequirement(value.data))
             })

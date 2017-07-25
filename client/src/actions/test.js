@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { SubmissionError } from 'redux-form'
-import { SET_ROLES } from './types'
+import { SET_ROLES, API } from './types'
 
 export const setRoles = (roles) => {
   return {
@@ -11,7 +11,7 @@ export const setRoles = (roles) => {
 
 export const getRoles = data => {
   return dispatch => {
-    return axios.post('http://localhost:5000/api/test', data)
+    return axios.post(API+'/api/test', data)
             .then((value) => {
               dispatch(setRoles(value.data.resultado))
             })
