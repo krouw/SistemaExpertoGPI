@@ -25,6 +25,58 @@ Roles = { 1: {'name': 'Presidente', 'realizacion': 4, 'reconocimiento': 4, 'resp
 17: {'name': 'Guardia', 'realizacion': 2, 'reconocimiento': 3, 'responsabilidad': 3, 'progeso':2, 'desarollo':2, 'identidad':2, 'politicas':4, 'administracion':1, 'supervision':2, 'interpersonal':3, 'condiciones':3, 'sueldos':0, 'ascenso':2, 'analitico':2, 'armonico':2, 'competitivo':2, 'comunicador':1, 'conector':1, 'desarollador':1, 'disciplinado':3, 'empatico':1, 'emprendedor':1, 'flexible':1, 'mandatario':3, 'responsable':3, 'competencia':1}}
 
 
+def fuzzyLogic(body):
+    Hacone = []
+    FactBio=[]
+    FactAmb=[]
+    HCN=0
+    FA=0
+    FB=0
+    contador = 0
+    Total = 0
+
+    for i in range(1,3):
+        pregunta = float(body[i])
+        FactBio.append(pregunta)
+        FB = FB+pregunta
+        contador = contador + 1
+
+    for i in range(3,5):
+        pregunta = float(body[i])
+        FactAmb.append(pregunta)
+        FA = FA+pregunta
+        contador = contador + 1
+
+    for i in range(5,32):
+        pregunta = float(body[i])
+        Hacone.append(pregunta)
+        HCN = HCN+pregunta
+        contador = contador + 1
+
+        Total=FB+FA+HCN
+    print contador
+    print Total
+
+    cargouni = { 'presidente':4057099, 'vicepresidente':4057095, 'asesor financiero':4057086, 'jefe de proyecto':4027088, 'jefe de departamentos':4057086, 'subjefe de departamentos':4027085, 'auditor':4026081, 'contador':4026083, 'medico general':4026075, 'medico especialista':4026077, 'coordinador':4027076 }
+    cargotec = { 'ayudante mantenimiento':3000060, 'despachador farmacia':3015659, 'secretaria':3010658, 'enfermera':3000073 }
+    cargomedia = { 'aseo':43, 'guardia':52 }
+
+    result = []
+
+    if Total >= 4027076:
+        for k,v in cargouni.iteritems():
+            if Total >= v:
+                result.append(k)
+    elif Total >= 3000060:
+        for k,v in cargotec.iteritems():
+            if Total>=v:
+                result.append(k)
+    elif Total < 3000000:
+        for k,v in cargomedia.iteritems():
+            if Total>=v:
+                result.append(k)
+    return result
+
 def validate(body):
     if body:
         return True
@@ -40,8 +92,14 @@ class RestRole(Resource):
         return { 'role': id_role, 'data': Roles[id_role], 'keys': Roles[id_role].keys() }
 
 class RestFuzzy(Resource):
-    def get(self):
-        return { 'resultado': 'resultado' }
+    def post(self):
+        content = request.get_json(silent=True)
+        if(validate(content)):
+            resultado = fuzzyLogic(content)
+            print resultado
+            return { 'resultado': resultado }
+        else:
+            return { 'error': 'Problemas con el servidor' }, 400
 
 api.add_resource(index, '/')
 api.add_resource(RestFuzzy, '/api/test')
