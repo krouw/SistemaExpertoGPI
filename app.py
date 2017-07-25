@@ -1,4 +1,4 @@
-from flask import Flask, abort, request, render_template
+from flask import Flask, request, render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 
@@ -83,9 +83,9 @@ def validate(body):
     else:
         return False
 
-class index(Resource):
-    def get(self):
-        return { 'hola': 'apiSistemaDePerfiles' }
+@app.route("/")
+def hello():
+    return render_template('index.html')
 
 class RestRole(Resource):
     def get(seft, id_role):
@@ -101,7 +101,6 @@ class RestFuzzy(Resource):
         else:
             return { 'error': 'Problemas con el servidor' }, 400
 
-api.add_resource(index, '/')
 api.add_resource(RestFuzzy, '/api/test')
 api.add_resource(RestRole, '/api/role/<int:id_role>')
 
